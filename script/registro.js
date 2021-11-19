@@ -8,6 +8,7 @@ const form = document.getElementById('form');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     leer();
+    localStorage.setItem("isLogged", "0")
     window.location.href = "./index.html"
 })
 

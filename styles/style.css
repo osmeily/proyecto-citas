@@ -23,3 +23,9 @@ header h1{
 #btnBuscar{
     height: 38px;
 }
+
+.datos {
+    margin-right: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}

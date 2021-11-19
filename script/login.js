@@ -1,28 +1,20 @@
-let nombre;
 let email;
 let pass;
-
+let boton =  document.getElementById("login-btn")
 var localStorage = window.localStorage;
-const form = document.getElementById('form');
 
-form.addEventListener('submit', (e) => {
+
+
+boton.addEventListener('click', (e) => {
     e.preventDefault();
-    leer();
-})
-
-
-function leer() {
-    nombre = document.getElementById('nombre').value;
     email = document.getElementById('email').value;
     pass = document.getElementById('password').value;
-
-    localStorage.setItem('nombre', nombre);
-    localStorage.setItem('email', email);
-    localStorage.setItem('pass', pass);
+    if(email == localStorage.getItem("email") && pass == localStorage.getItem("pass")){
+        window.location.href="./index.html"
+        console.log("Login exitoso")
+        localStorage.setItem("isLogged", "1")
+    }else{
+        Swal.fire("Falló el inicio de sesión")
     }
+})
 
-
-function mostrar() {
-    let nombreLocal = localStorage.getItem('nombre');
-    console.log(nombreLocal)
-}

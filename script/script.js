@@ -3,6 +3,8 @@ let citas = []
 let listarCitas = document.getElementById("listarCitas")
 let buscar = document.getElementById("btnBuscar")
 let busqueda = document.getElementById("busqueda")
+let barra = document.getElementById("barra")
+
 
 if (localStorage.getItem('citas')) {
     citas = JSON.parse(localStorage.getItem('citas'));
@@ -47,6 +49,17 @@ const capturarDatos = () => {
     })
 
     form.reset()
+}
+var isLogged = Number(localStorage.getItem("isLogged"))
+
+if(isLogged){
+    barra.innerHTML += `
+    <div class="datos">
+        <ul class="navbar-nav">
+            <li class="nav-item">Hola de nuevo, ${localStorage.getItem("nombre")}!</li>
+        </ul>
+    </div>
+`
 }
 
 form.addEventListener("submit", e => {
@@ -111,6 +124,8 @@ buscar.addEventListener("click", e =>{
         })
     })
 })
+
+
 /*
 Buscar y borrar el elemento en el array por el id que encontramos
 Decirle al localStorage que el elemento citas ahora vale lo que contiene nuestro array citas pero stringyficado
